@@ -30,26 +30,26 @@ int f(int n) {
 
 int main() {
 
-    for (int i = 0; i <= 20; i++) {
+    for (int i = 0; i <= 200; i++) {
         clock_t startTime = clock();
         int result = pownlogn(2, i);
         clock_t endTime = clock();
-        cout << "2^" << i << "=" << result << ", nlogn, time = " << (endTime - startTime) / CLOCKS_PER_SEC << endl;
+        cout << "2^" << i << "=" << result << ", nlogn, time = " << double(endTime - startTime) / CLOCKS_PER_SEC << endl;
 
         startTime = clock();
         result = pown(2, i);
         endTime = clock();
-        cout << "2^" << i << "=" << result << ", n, time = " << (endTime - startTime) / CLOCKS_PER_SEC << endl;
+        cout << "2^" << i << "=" << result << ", n, time = " << double(endTime - startTime) / CLOCKS_PER_SEC << endl;
 
         startTime = clock();
         result = pow(2, i);
         endTime = clock();
-        cout << "2^" << i << "=" << result << ", cmath.pow, time = " << (endTime - startTime) / CLOCKS_PER_SEC << endl;
+        cout << "2^" << i << "=" << result << ", cmath.pow, time = " << double(endTime - startTime) / CLOCKS_PER_SEC << endl;
 
-        startTime = clock();
-        result = f(i);
-        endTime = clock();
-        cout << i << result << ", f, time = " << (endTime - startTime) / CLOCKS_PER_SEC << endl;
+        // startTime = clock();
+        // result = f(i);
+        // endTime = clock();
+        // cout << i << result << ", f, time = " << double(endTime - startTime) / CLOCKS_PER_SEC << endl;
     }
 
     return 0;
