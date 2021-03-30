@@ -2,20 +2,20 @@
 
 // 不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。
 
-const nums = [1, 1, 1, 2, 3, 4, 4, 4]
+const nums = [1, 1, 1, 1, 2, 3, 4, 4, 4]
 
 /**
  * @param {number[]} nums
  * @return {number}
  */
 var removeDuplicates = function (nums) {
-  for (var i = 0, k = 2; i < nums.length; i++) {
-    if (nums[i] > nums[k]) {
-      ;[nums[k], nums[i]] = [nums[i], nums[k]]
-      k++
+  var len = 0
+  for (var i = 0; i < nums.length; i++) {
+    if (len < 2 || nums[i] != nums[len - 2]) {
+      nums[len++] = nums[i]
     }
   }
-  console.log(k)
+  return len
 }
 
 removeDuplicates(nums)
