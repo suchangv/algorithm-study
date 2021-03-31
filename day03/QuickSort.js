@@ -1,5 +1,5 @@
 // const nums = [49, 38, 65, 97, 76, 13, 27, 49]
-const nums = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8]
+const nums = [3, 2, 1, 5, 6, 4, 7]
 
 /**
  *
@@ -18,11 +18,11 @@ function quickSort(arr, low, high) {
       l++, h--
     }
 
-    if (arr[l] <= arr[key]) {
+    while (l < h && arr[l] <= arr[key]) {
       l++
     }
 
-    if (arr[h] >= arr[key]) {
+    while (l < h && arr[h] >= arr[key]) {
       h--
     }
   }
