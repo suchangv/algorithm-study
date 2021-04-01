@@ -19,3 +19,16 @@
 - 快速排序 O(nlogn)
 - leetcode75 颜色排序
 - leetcode88 合并有序数组
+
+## day04
+
+-归并排序 O(nlogn)
+
+## day05
+
+- leetcode167 两数之和
+- leetcode125 回文字符串
+- leetcode344 反转字符串
+- leetcode345 反转元音字母
+- leetcode11 最大容器
+- leeetcode209 长度最小子数组

@@ -1,6 +1,6 @@
 // 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
 
-const nums = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8]
+const nums = [2, 1, 3, 5, 6, 4]
 const k = 2
 
 /**
@@ -13,33 +13,35 @@ var findKthLargest = function (nums, k) {
   return nums[result]
 }
 
-function find(nums, left, right, k) {
-  if (left > right) return
+function find(arr, low, high, k) {
+  if (low < high) {
+    let index = getIndex(arr, low, high)
 
-  let key = nums[low]
-  let i = left
-  let j = right
-
-  while (i < j) {
-    while (i < j && nums[j] <= key) {
-      j--
+    if (arr.length - index === k) {
+      return index
+    } else if (arr.length - index > k) {
+      return find(arr, index, high, k)
+    } else {
+      return find(arr, low, index, k)
     }
-    nums[i] = nums[j]
-    while (i < j && nums[i] >= key) {
-      i++
-    }
-    nums[j] = num[i]
-    nums[i] = key
-    if (i === k) {
-      return
-    }else if(i)
   }
 }
 
-function swap(arr, i, j) {
-  let temp = arr[i]
-  arr[i] = arr[j]
-  arr[j] = temp
+function getIndex(arr, low, high, k) {
+  let tmp = arr[low]
+  while (low < high) {
+    while (low < high && arr[high] >= tmp) {
+      high--
+    }
+    arr[low] = arr[high]
+    while (low < high && arr[low] <= tmp) {
+      low++
+    }
+    arr[high] = arr[low]
+  }
+
+  arr[low] = tmp
+  return low
 }
 
 const result = findKthLargest(nums, k)
