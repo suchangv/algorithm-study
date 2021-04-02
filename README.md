@@ -32,3 +32,9 @@
 - leetcode345 反转元音字母
 - leetcode11 最大容器
 - leeetcode209 长度最小子数组
+
+## day06
+
+- leetcode3 无重复字符最长子串
+- leetcode76 最小覆盖子串
+- leetcode438 找到字符串中所有的字母异位词
